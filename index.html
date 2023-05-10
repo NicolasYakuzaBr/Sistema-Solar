@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <title>Sistema Solar</title>
+        <link rel="icon" href="Solar.ico">
+        <audio autoplay loop>
+            <source src="Music.mp3" type="audio/mpeg">
+          </audio>
+<head>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            background-image: url(Estrelas.jpg);
+           
+            overflow: hidden;
+        }
+        .container {
+            font-size: 10px;
+            width: 40em;
+            height: 40em;
+            position: relative;
+        }
+        .sun {
+            position: absolute;
+            top: 15em;
+            left: 15em;
+            width: 7em;
+            height: 7em;
+            background-color: rgb(255, 251, 0);
+            border-radius: 50%;
+            box-shadow: 0 0 1.2em rgb(255, 255, 255);
+            background-image: url(Sol.jpg);
+            background-size: 135%;
+            background-position: center;
+        }
+        .mercury {
+            position: absolute;
+            top: 13.5em;
+            left: 13.5em;
+            width: 10em;
+            height: 10em;
+            animation: orbit 15s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .mercury::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 0.8em;
+            right: 1em;
+            width: 1em;
+            height: 1em;
+            background-color: silver;
+            background-image: url(Mercurio.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .venus {
+            position: absolute;
+            top: 10.5em;
+            left: 10.5em;
+            width: 15em;
+            height: 15em;
+            animation: orbit 30s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.15em 0.15em 0 0;
+            border-radius: 50%;
+        }
+        .venus::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 1em;
+            right: 1.8em;
+            width: 1.5em;
+            height: 1.5em;
+            background-color: orange;
+            background-image: url(Venus.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .terra {
+            position: absolute;
+            top: 7.7em;
+            left: 8em;
+            width: 20em;
+            height: 20em;
+            animation: orbit 40s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .terra::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 2em;
+            left: 16em;
+            width: 1.5em;
+            height: 1.5em;
+            background-color: rgb(14, 159, 255);
+            background-image: url(Terra.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .mars {
+            position: absolute;
+            top: 5em;
+            left: 5em;
+            width: 25em;
+            height: 25em;
+            animation: orbit 50s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .mars::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 2.5em;
+            right: 3.5em;
+            width: 1.6em;
+            height: 1.6em;
+            background-color: rgb(255, 72, 0);
+            background-image: url(Marte.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .jupiter {
+            position: absolute;
+            top: 2.5em;
+            left: 2em;
+            width: 30em;
+            height: 30em;
+            animation: orbit 60s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .jupiter::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 3em;
+            right: 4em;
+            width: 2em;
+            height: 2em;
+            background-color: rgb(241, 213, 213);
+            background-image: url(Jupiter.webp);
+            background-size: cover;
+            background-position: center;
+        }
+        .saturno {
+            position: absolute;
+            top: -1em;
+            left: -1em;
+            width: 35em;
+            height: 35em;
+            animation: orbit 70s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .saturno::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 4.2em;
+            right: 4em;
+            width: 2em;
+            height: 2em;
+            background-color: goldenrod;
+            background-image: url(Saturno.jpeg);
+            background-size: cover;
+            background-position: center;   
+        }
+        .urano {
+            position: absolute;
+            top: -4.5em;
+            left: -4.2em;
+            width: 40em;
+            height: 40em;
+            animation: orbit 80s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .urano::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 4.9em;
+            right: 4.7em;
+            width: 1.9em;
+            height: 1.9em;
+            background-color: rgb(0, 119, 255);
+            background-image: url(Urano.webp);
+            background-size: cover;
+            background-position: center;
+        }
+        .netuno {
+            position: absolute;
+            top: -8em;
+            left: -7em;
+            width: 45em;
+            height: 45em;
+            animation: orbit 95s linear infinite;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+            border-width: 0.1em 0.1em 0 0;
+            border-radius: 50%;
+        }
+        .netuno::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: 5em;
+            right: 6em;
+            width: 1.9em;
+            height: 1.9em;
+            background-color: rgb(0, 17, 255);
+            background-image: url(Netuno.webp);
+            background-size: cover;
+            background-position: center;
+        }
+        .lua {
+            position: absolute;
+            top: 2.4em;
+            left: 16.3em;
+            width: 0.8em; 
+            height: 0.8em; 
+            border-radius: 50%;
+            animation: orbit 10s linear infinite;
+        }
+        .lua::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: -0em;
+            right: -1.4em;
+            width: 0.7em;
+            height: 0.7em;
+            background-color: rgb(124, 109, 109);
+            background-image: url(Lua.png);
+            background-size: cover;
+            background-position: center;    
+        }
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="mercury"></div>
+        <div class="venus"></div>
+        <div class="mars"></div>
+        <div class="jupiter"></div>
+        <div class="saturno"></div>
+        <div class="urano"></div>
+        <div class="netuno"></div>
+        <div class="terra">
+        <div class="lua"></div>          
+    </div>
+</body>
+</html>
+
+
